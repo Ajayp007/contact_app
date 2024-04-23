@@ -34,11 +34,7 @@ class ContactProvider with ChangeNotifier {
         check = await auth.authenticate(
           localizedReason: 'Please authenticate to show account balance ',
         );
-      } else {
-        print("error1");
       }
-    } else {
-      print("error2");
     }
     return check;
   }

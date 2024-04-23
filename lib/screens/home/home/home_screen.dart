@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:contact_app/screens/home/provider/contact_provider.dart';
 import 'package:contact_app/utiles/share_preference.dart';
 import 'package:contact_app/utiles/theme_provider.dart';
@@ -37,23 +36,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 PopupMenuItem(
                   onTap: () {
                     setThemeMode('light');
-                    context.read<ThemeProvider>().changeTheme(ThemeMode.light);
+                    context.read<ThemeProvider>().setTheme();
                   },
                   textStyle: Theme.of(context).popupMenuTheme.textStyle,
-
                   child: const Text("Light"),
                 ),
                 PopupMenuItem(
                   onTap: () {
                     setThemeMode('dark');
-                    context.read<ThemeProvider>().changeTheme(ThemeMode.dark);
+                    context.read<ThemeProvider>().setTheme();
                   },
                   child: const Text("Dark"),
                 ),
                 PopupMenuItem(
                   onTap: () {
                     setThemeMode('system');
-                    context.read<ThemeProvider>().changeTheme(ThemeMode.system);
+                    context.read<ThemeProvider>().setTheme();
                   },
                   child: const Text("System"),
                 ),

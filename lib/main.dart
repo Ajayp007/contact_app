@@ -8,27 +8,30 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  String? themeMode = await getThemeMode();
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: ContactProvider()),
         ChangeNotifierProvider.value(value: ThemeProvider()),
       ],
-      child: Consumer<ContactProvider>(
-        builder: (context, value, child) => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          routes: app_routes,
-          theme: light_Theme,
-          darkTheme: dark_Theme,
-          themeMode: themeMode == null
-              ? ThemeMode.system
-              : themeMode == 'light'
-                  ? ThemeMode.light
-                  : themeMode == 'dark'
-                      ? ThemeMode.dark
-                      : ThemeMode.system,
-        ),
+      child: Consumer<ThemeProvider>(
+        builder: (context, value, child) {
+          getThemeMode();
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            routes: app_routes,
+            theme: light_Theme,
+            darkTheme: dark_Theme,
+            themeMode: value.themeMode == null
+                ? ThemeMode.system
+                : value.themeMode == 'light'
+                    ? ThemeMode.light
+                    : value.themeMode == 'dark'
+                        ? ThemeMode.dark
+                        : ThemeMode.system,
+          );
+        },
       ),
     ),
   );

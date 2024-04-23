@@ -1,12 +1,11 @@
+import 'package:contact_app/utiles/share_preference.dart';
 import 'package:flutter/material.dart';
 
-class ThemeProvider with ChangeNotifier
-{
-    ThemeMode selectTheme = ThemeMode.system;
+class ThemeProvider with ChangeNotifier {
+  String? themeMode;
 
-    void changeTheme(mode)
-    {
-        selectTheme = mode;
-        notifyListeners();
-    }
+  void setTheme() async {
+    themeMode = await getThemeMode();
+    notifyListeners();
+  }
 }
