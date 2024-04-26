@@ -5,6 +5,7 @@ import 'package:local_auth/local_auth.dart';
 class ContactProvider with ChangeNotifier {
   List<ContactModel> contactList = [];
   List<ContactModel> hideContactList = [];
+  List introPage=[];
 
   void addContact(ContactModel c1) {
     contactList.add(c1);

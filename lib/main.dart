@@ -18,8 +18,10 @@ void main() async {
       child: Consumer<ThemeProvider>(
         builder: (context, value, child) {
           getThemeMode();
+          getIntroScreen();
           return MaterialApp(
             debugShowCheckedModeBanner: false,
+           // initialRoute: ,
             routes: app_routes,
             theme: light_Theme,
             darkTheme: dark_Theme,

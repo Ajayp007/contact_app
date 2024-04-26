@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return ListTile(
               onTap: () {
                 Navigator.pushNamed(context, 'detail',
-                    arguments: ['home', index]);
+                    arguments: ['view', index]);
               },
               leading: value.contactList[index].image == null
                   ? const CircleAvatar()
